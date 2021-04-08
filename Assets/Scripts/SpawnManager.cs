@@ -10,31 +10,28 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        //SpawnEnemyWave(waveNumber);
-        //SpawnPowerup();
-
-        /// challenge: instantiate a new enemy game object
-        Instantiate(
-        enemyPrefab, 
-        GenerateSpawnPosition(), 
-        enemyPrefab.transform.rotation);
+        SpawnEnemyWave(waveNumber);
+        SpawnPowerup();
     }
 
     void Update()
     {
-        //enemyCount = FindObjectsOfType<Enemy>().Length;
-        //if (enemyCount == 0)
-        //{
-        //    waveNumber++;
-        //    SpawnEnemyWave(waveNumber);
-        //    SpawnPowerup();
-        //}
+        enemyCount = FindObjectsOfType<Enemy>().Length;
+        if (enemyCount == 0)
+        {
+            waveNumber++;
+            SpawnEnemyWave(waveNumber);
+            SpawnPowerup();
+        }
     }
 
     /// challenge: spawn specified numberOfEnemies using Instantiate(...)
     void SpawnEnemyWave(int numberOfEnemies)
     {
-        // [...]
+        for (int i = 0; i < numberOfEnemies; i++)
+        {
+            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+        }
     }
 
     private Vector3 GenerateSpawnPosition()
