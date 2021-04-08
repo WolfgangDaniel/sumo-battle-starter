@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour
         //SpawnPowerup();
 
         /// challenge: instantiate a new enemy game object
-        //Instantiate(..., ..., ...);
+        Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
     }
 
     void Update()
